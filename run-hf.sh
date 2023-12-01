@@ -10,8 +10,6 @@ python train_hf.py \
     --do_train \
     --do_eval \
     --fp16 \
-    --torch_compile True \
-    --torchdynamo inductor \
     --log_level debug \
     --label_smoothing_factor 0.1 \
     --learning_rate 1e-4 \
