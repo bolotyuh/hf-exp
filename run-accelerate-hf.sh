@@ -1,4 +1,4 @@
-export WANDB_PROJECT=rafflesia-timm
+export WANDB_PROJECT=rafflesia-accelerate
 
 
 accelerate launch --config_file ./default_config.yaml train_hf.py \
@@ -8,9 +8,7 @@ accelerate launch --config_file ./default_config.yaml train_hf.py \
     --output_dir ./rafflesia-outputs-swin2-local/ \
     --remove_unused_columns False \
     --do_train \
-    --do_eval \
     --fp16 \
-    --log_level debug \
     --label_smoothing_factor 0.1 \
     --learning_rate 1e-4 \
     --warmup_ratio 0.03 \
@@ -27,6 +25,9 @@ accelerate launch --config_file ./default_config.yaml train_hf.py \
     --per_device_eval_batch_size 128 \
     --gradient_accumulation_steps 1 \
     --load_best_model_at_end True \
+    --report_to wandb \
     --save_total_limit 2 \
     --overwrite_output_dir \
     --seed 41
+
+# --do_eval \

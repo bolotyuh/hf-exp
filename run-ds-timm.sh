@@ -9,6 +9,7 @@
     --checkpoint-hist 2 \
     --log-interval 1 \
     --amp \
+    --torchcompile \
     --pin-mem \
     --batch-size 64 \
     --validation-batch-size 128 \
@@ -25,5 +26,4 @@
     --warmup-lr 1e-4 \
     --cooldown-epochs 0 \
     --drop-path 0.1
-
-# --torchcompile \
+ 
