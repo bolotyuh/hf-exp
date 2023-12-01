@@ -1,4 +1,4 @@
-python train_timm.py --data-dir /fsx/data \
+./distributed_train.sh 4 --data-dir /fsx/data \
     --train-split val \
     --val-split val \
     --model convnextv2_base --pretrained \
@@ -13,7 +13,7 @@ python train_timm.py --data-dir /fsx/data \
     --batch-size 64 \
     --validation-batch-size 128 \
     --grad-accum-steps 1 \
-    --workers 8 \
+    --workers 4 \
     --epochs 1 \
     --weight-decay 1e-8 \
     --opt adamw \
