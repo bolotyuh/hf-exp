@@ -1,6 +1,6 @@
 python train_timm.py \
     --dataset wds/rafflesia \
-    --data-dir /fsx/data/train \
+    --data-dir /fsx/data \
     --train-split "{00000000..00002876}.tar" \
     --val-split "{00000000..00000059}.tar" \
     --model convnextv2_base.fcmae_ft_in22k_in1k \
