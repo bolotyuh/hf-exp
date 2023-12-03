@@ -4,6 +4,7 @@ datasets
 accelerate
 evaluate
 scikit-learn
-timm
 webdataset>=0.2.5,<0.3
 fsspec[s3]==2023.9.2
+
+timm@git+https://github.com/bolotyuh/pytorch-image-models
