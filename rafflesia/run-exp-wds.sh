@@ -1,12 +1,12 @@
-python train_timm2.py \
+python train_timm.py \
     --dataset wds/rafflesia \
-    --data-dir /mnt/disk1/wds-rafflesia-subdataset/train \
-    --train-split "ds-train-{00000..00009}.tar" \
-    --val-split "ds-train-{00000..00009}.tar" \
+    --data-dir /fsx/data/train \
+    --train-split "{00000000..00002876}.tar" \
+    --val-split "{00000000..00000059}.tar" \
     --model convnextv2_base.fcmae_ft_in22k_in1k \
     --pretrained \
     --experiment 'convnextv2_wds' \
-    --num-classes 20 \
+    --num-classes 23986 \
     --checkpoint-hist 2 \
     --amp \
     --pin-mem \
