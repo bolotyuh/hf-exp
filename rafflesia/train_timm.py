@@ -580,7 +580,7 @@ def main():
         args.data_dir = args.data
     dataset_train = create_dataset(
         args.dataset,
-        root=args.data_dir,
+        root=os.path.join(args.data_dir, 'train'),
         split=args.train_split,
         is_training=True,
         class_map=args.class_map,
@@ -592,7 +592,7 @@ def main():
 
     dataset_eval = create_dataset(
         args.dataset,
-        root=args.data_dir,
+        root=os.path.join(args.data_dir, 'val'),
         split=args.val_split,
         is_training=False,
         class_map=args.class_map,
@@ -835,6 +835,22 @@ def main():
 
     except KeyboardInterrupt:
         pass
+
+    if args.log_wandb and has_wandb:
+        artifact = wandb.Artifact(
+            name=f"checkpoints-{args.experiment}-{wandb.run.id}",
+            type="model",
+            metadata={
+                'num_classes': args.num_classes,
+                'train_samples': len(dataset_train),
+                'eval_samples': len(dataset_eval),
+            }
+        )
+        artifact.add_file(os.path.join(output_dir, 'model_best.pth.tar'))
+        artifact.add_file(os.path.join(output_dir, 'last.pth.tar'))
+        artifact.add_file(os.path.join(output_dir, 'summary.csv'))
+        artifact.add_file(os.path.join(output_dir, 'args.yaml'))
+        wandb.log_artifact(artifact)
 
     if best_metric is not None:
         _logger.info('*** Best metric: {0} (epoch {1})'.format(best_metric, best_epoch))

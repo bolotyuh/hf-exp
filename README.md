@@ -2,8 +2,9 @@
 sudo yum install htop
 
 conda create -n py310 python=3.10
-conda init
+conda init zsh
 source ~/.zshrc
+conda activate py310
 ```
 
 
