@@ -1,4 +1,4 @@
-python train_timm.py \
+python train_timm2.py \
     --dataset wds/rafflesia \
     --data-dir /mnt/disk1/wds-rafflesia-subdataset/train \
     --train-split "ds-train-{00000..00009}.tar" \
