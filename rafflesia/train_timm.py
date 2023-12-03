@@ -990,6 +990,15 @@ def train_one_epoch(
                     f'Data: {data_time_m.val:.3f} ({data_time_m.avg:.3f})'
                 )
 
+                if args.log_wandb and has_wandb:
+                    row = {
+                        'loss': losses_m.val,
+                        'lr': lr,
+                        'data_time': data_time_m.val,
+                        'update_time': update_time_m.val
+                    }
+                    wandb.log(row)
+
                 if args.save_images and output_dir:
                     torchvision.utils.save_image(
                         input,
