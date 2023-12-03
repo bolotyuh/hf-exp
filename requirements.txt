@@ -5,3 +5,4 @@ accelerate
 evaluate
 scikit-learn
 timm
+webdataset>=0.2.5,<0.3
