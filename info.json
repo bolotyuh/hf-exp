@@ -1,0 +1,16 @@
+{
+    "splits": {
+        "{00000..00001}.tar": {
+            "alt_label": "caption",
+            "name": "train",
+            "filenames": [
+                "ds-train-00000.tar",
+                "ds-train-00001.tar"
+            ],
+            "shard_lengths": [
+                9998,
+                9998
+            ]
+        }
+    }
+}
