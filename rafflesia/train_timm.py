@@ -838,7 +838,7 @@ def main():
 
     if args.log_wandb and has_wandb:
         artifact = wandb.Artifact(
-            name=f"checkpoints-{args.experiment}-{wandb.run.id}",
+            name=f"checkpoints-{args.experiment}",
             type="model",
             metadata={
                 'num_classes': args.num_classes,
@@ -992,10 +992,8 @@ def train_one_epoch(
 
                 if args.log_wandb and has_wandb:
                     row = {
-                        'loss': losses_m.val,
-                        'lr': lr,
-                        'data_time': data_time_m.val,
-                        'update_time': update_time_m.val
+                        'loss': losses_m.avg,
+                        'lr': lr
                     }
                     wandb.log(row)
 

@@ -18,7 +18,7 @@ python train_timm2.py \
     --epochs 10 \
     --weight-decay 0. \
     --opt adamw \
-    --lr 1e-4 \
+    --lr-base 2.5e-5 \
     --smoothing 0.1 \
     --sched cosine \
     --warmup-epochs 0 \
