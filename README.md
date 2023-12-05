@@ -7,6 +7,7 @@ source ~/.zshrc
 conda activate py310
 ```
 
+git clone https://github.com/bolotyuh/hf-exp.git
 
 https://docs.aws.amazon.com/fsx/latest/LustreGuide/exporting-files-hsm.html
 
